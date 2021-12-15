@@ -37,36 +37,6 @@ unsigned long GetHexLen(unsigned long inInt){
     return count;
 }
 
-int Readfile(char *path){
-    int count = 0;
-    char a;
-    FILE *eventFile = fopen(path,"r");
-    if(eventFile != NULL){
-        while(!feof(eventFile)){
-            printf("%c",fgetc(eventFile));
-            count++;
-        }
-        if(fclose(eventFile)==EOF){
-            printf( "文件关闭错误\n" );
-        }
-    }
-    printf("\n");
-    return 0;
-}
-
-int Writefile(char *path,int force){
-    if(force == 0){
-        FILE *openFile = fopen(path,"w");
-        if(openFile != NULL) fputc('a',openFile);
-        fclose(openFile);
-    }else if(force == 1){
-        FILE *openFile = fopen(path,"wb");
-        if(openFile != NULL) fputc('a',openFile);
-        fclose(openFile);
-    }else printf("Can't write file!\n");
-    return 0;
-}
-
 int Doubletap(){
     return 0;
 }
